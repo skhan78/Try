@@ -19,12 +19,18 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *default
-  database: erp_new_development
-
+  development:
+    adapter: postgresql
+    encoding: unicode
+    reconnect: false
+    database: erpsysytem_new
+    pool: 5
+    host: localhost
+    username: erpsysytem
+    password: 123456
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
